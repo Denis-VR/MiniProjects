@@ -1,12 +1,12 @@
 package project_8_colletion_framework.realization;
 
-import project_8_colletion_framework.Interfaces.CarSet;
+import project_8_colletion_framework.Interfaces.Set;
 
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
-public class HashSet<T> implements CarSet<T> {
+public class HashSet<T> implements Set<T> {
 
     private Map<T, Object> map = new HashMap<>();
     private Object object = new Object();

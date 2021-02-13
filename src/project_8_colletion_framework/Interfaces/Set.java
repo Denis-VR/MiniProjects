@@ -1,6 +1,6 @@
 package project_8_colletion_framework.Interfaces;
 
-public interface CarSet<T> extends CarCollection<T> {
+public interface Set<T> extends Collection<T> {
     boolean add(T car);
 
     boolean remove(T car);

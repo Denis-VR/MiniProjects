@@ -1,11 +1,11 @@
 package project_8_colletion_framework.realization;
 
-import project_8_colletion_framework.Interfaces.CarList;
-import project_8_colletion_framework.Interfaces.CarQueue;
+import project_8_colletion_framework.Interfaces.List;
+import project_8_colletion_framework.Interfaces.Queue;
 
 import java.util.Iterator;
 
-public class LinkedList<T> implements CarList<T>, CarQueue<T> {
+public class LinkedList<T> implements List<T>, Queue<T> {
 
     private Node first;
     private Node last;
@@ -127,24 +127,6 @@ public class LinkedList<T> implements CarList<T>, CarQueue<T> {
         }
         return node;
     }
-
-//    @Override
-//    public Iterator<Car> iterator() {
-//        return new Iterator<Car>() {
-//
-//            int index;
-//
-//            @Override
-//            public boolean hasNext() {
-//                return index < size;
-//            }
-//
-//            @Override
-//            public Car next() {
-//                return get(index++);
-//            }
-//        };
-//    }
 
     @Override
     public Iterator<T> iterator() {

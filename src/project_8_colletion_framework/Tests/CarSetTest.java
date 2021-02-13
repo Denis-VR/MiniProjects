@@ -3,21 +3,17 @@ package project_8_colletion_framework.Tests;
 import org.junit.Before;
 import org.junit.Test;
 import project_8_colletion_framework.Car;
-import project_8_colletion_framework.Interfaces.CarSet;
+import project_8_colletion_framework.Interfaces.Set;
 import project_8_colletion_framework.realization.HashSet;
 
 import static org.junit.Assert.*;
 
 public class CarSetTest {
-    private CarSet<Car> carSet;
+    private Set<Car> carSet;
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         carSet = new HashSet<>();
-//        carSet = new CarSet();
-//        for (int i = 0; i < 100; i++) {
-//            carSet.add(new Car("Brand" + i, i));
-//        }
     }
 
     @Test

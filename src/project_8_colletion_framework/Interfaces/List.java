@@ -1,6 +1,6 @@
 package project_8_colletion_framework.Interfaces;
 
-public interface CarList<T> extends CarCollection<T> {
+public interface List<T> extends Collection<T> {
     T get(int index);
 
     boolean add(T car, int index);

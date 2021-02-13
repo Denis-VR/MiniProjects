@@ -3,16 +3,16 @@ package project_8_colletion_framework.Tests;
 import org.junit.Before;
 import org.junit.Test;
 import project_8_colletion_framework.Car;
-import project_8_colletion_framework.Interfaces.CarList;
+import project_8_colletion_framework.Interfaces.List;
 import project_8_colletion_framework.realization.LinkedList;
 
 import static org.junit.Assert.*;
 
 public class CarListTest {
-    private CarList<Car> carList;
+    private List<Car> carList;
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         carList = new LinkedList<>();
         // carList = new CarArrayList<>();
         for (int i = 0; i < 100; i++) {

@@ -4,7 +4,7 @@ import org.junit.Before;
 import org.junit.Test;
 import project_8_colletion_framework.Car;
 import project_8_colletion_framework.CarOwner;
-import project_8_colletion_framework.Interfaces.CarMap;
+import project_8_colletion_framework.Interfaces.Map;
 import project_8_colletion_framework.realization.HashMap;
 
 import java.util.ArrayList;
@@ -15,7 +15,7 @@ import java.util.Set;
 import static org.junit.Assert.*;
 
 public class CarMapTest {
-    private CarMap<CarOwner, Car> map;
+    private Map<CarOwner, Car> map;
     private CarOwner owner;
     private CarOwner owner2;
     private Car car;
@@ -50,7 +50,7 @@ public class CarMapTest {
 
     @Test
     public void keySet() {
-        Set<CarOwner> owners = new HashSet<>();
+        Set<CarOwner> owners;
         owners = map.keySet();
         assertTrue(owners.contains(owner));
         assertTrue(owners.contains(owner2));
@@ -58,7 +58,7 @@ public class CarMapTest {
 
     @Test
     public void values() {
-        List<Car> cars = new ArrayList<>();
+        List<Car> cars;
         cars = map.values();
         assertTrue(cars.contains(car));
         assertTrue(cars.contains(car2));

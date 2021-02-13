@@ -1,11 +1,11 @@
 package project_8_colletion_framework.realization;
 
-import project_8_colletion_framework.Interfaces.CarList;
+import project_8_colletion_framework.Interfaces.List;
 
 import java.util.Arrays;
 import java.util.Iterator;
 
-public class ArrayList<T> implements CarList<T> {
+public class ArrayList<T> implements List<T> {
     private Object[] array = new Object[10];
     private int size = 0;
 
@@ -84,12 +84,7 @@ public class ArrayList<T> implements CarList<T> {
 
     private void increaseArray() {
         if (size >= array.length) {
-            array = Arrays.copyOf(array, array.length * 2);  //TODO: add to obsidian
-//            Car[] newArray = new Car[array.length * 2];
-//            for (int i = 0; i < array.length; i++) {
-//                newArray[i] = array[i];
-//            }
-///           array = newArray;
+            array = Arrays.copyOf(array, array.length * 2);
         }
     }
 

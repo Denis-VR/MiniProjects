@@ -1,6 +1,6 @@
 package project_8_colletion_framework.Interfaces;
 
-public interface CarCollection<T> extends Iterable<T> {
+public interface Collection<T> extends Iterable<T> {
 
     boolean remove(T car);
 

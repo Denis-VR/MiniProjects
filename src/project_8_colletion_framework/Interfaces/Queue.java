@@ -1,6 +1,6 @@
 package project_8_colletion_framework.Interfaces;
 
-public interface CarQueue<T> extends CarCollection<T> {
+public interface Queue<T> extends Collection<T> {
     boolean add(T car);
 
     T peek();

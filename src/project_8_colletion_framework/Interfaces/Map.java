@@ -3,7 +3,7 @@ package project_8_colletion_framework.Interfaces;
 import java.util.List;
 import java.util.Set;
 
-public interface CarMap<K, V> {
+public interface Map<K, V> {
     void put(K key, V value);
 
     V get(K key);
