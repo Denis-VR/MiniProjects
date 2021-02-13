@@ -4,16 +4,16 @@ import org.junit.Before;
 import org.junit.Test;
 import project_8_colletion_framework.Car;
 import project_8_colletion_framework.Interfaces.CarSet;
-import project_8_colletion_framework.realization.CarHashSet;
+import project_8_colletion_framework.realization.HashSet;
 
 import static org.junit.Assert.*;
 
 public class CarSetTest {
-    private CarSet carSet;
+    private CarSet<Car> carSet;
 
     @Before
     public void setUp() throws Exception {
-        carSet = new CarHashSet();
+        carSet = new HashSet<>();
 //        carSet = new CarSet();
 //        for (int i = 0; i < 100; i++) {
 //            carSet.add(new Car("Brand" + i, i));

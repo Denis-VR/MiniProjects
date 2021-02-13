@@ -5,7 +5,7 @@ import org.junit.Test;
 import project_8_colletion_framework.Car;
 import project_8_colletion_framework.CarOwner;
 import project_8_colletion_framework.Interfaces.CarMap;
-import project_8_colletion_framework.realization.CarHashMap;
+import project_8_colletion_framework.realization.HashMap;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -15,7 +15,7 @@ import java.util.Set;
 import static org.junit.Assert.*;
 
 public class CarMapTest {
-    private CarMap map;
+    private CarMap<CarOwner, Car> map;
     private CarOwner owner;
     private CarOwner owner2;
     private Car car;
@@ -24,8 +24,7 @@ public class CarMapTest {
 
     @Before
     public void setUp() throws Exception {
-        //init here
-        map = new CarHashMap();
+        map = new HashMap<>();
         owner = new CarOwner(666, "Len", "Teplo");
         car = new Car("Tesla", 983);
         owner2 = new CarOwner(777, "Job", "Vanish");

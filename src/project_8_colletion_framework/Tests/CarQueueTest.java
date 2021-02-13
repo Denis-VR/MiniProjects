@@ -4,17 +4,17 @@ import org.junit.Before;
 import org.junit.Test;
 import project_8_colletion_framework.Car;
 import project_8_colletion_framework.Interfaces.CarQueue;
-import project_8_colletion_framework.realization.CarLinkedList;
+import project_8_colletion_framework.realization.LinkedList;
 
 import static org.junit.Assert.*;
 
 public class CarQueueTest {
 
-    private CarQueue queue;
+    private CarQueue<Car> queue;
 
     @Before
     public void setUp() throws Exception {
-        queue = new CarLinkedList();
+        queue = new LinkedList<>();
         for (int i = 0; i < 10; i++) {
             queue.add(new Car("Brand" + i, i));
         }

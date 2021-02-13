@@ -1,18 +1,16 @@
 package project_8_colletion_framework.Interfaces;
 
-import project_8_colletion_framework.Car;
+public interface CarCollection<T> extends Iterable<T> {
 
-public interface CarCollection extends Iterable<Car> {
+    boolean remove(T car);
 
-    boolean remove(Car car);
-
-    boolean add(Car car);
+    boolean add(T car);
 
     int size();
 
     void clear();
 
-    boolean contains(Car car);
+    boolean contains(T car);
 }
 
 

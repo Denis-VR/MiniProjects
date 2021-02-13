@@ -4,18 +4,17 @@ import org.junit.Before;
 import org.junit.Test;
 import project_8_colletion_framework.Car;
 import project_8_colletion_framework.Interfaces.CarList;
-import project_8_colletion_framework.realization.CarLinkedList;
+import project_8_colletion_framework.realization.LinkedList;
 
 import static org.junit.Assert.*;
 
 public class CarListTest {
-    private CarList carList;
+    private CarList<Car> carList;
 
-    //setUp() must call before every method.
     @Before
     public void setUp() throws Exception {
-        carList = new CarLinkedList();
-        // carList = new CarArrayList();
+        carList = new LinkedList<>();
+        // carList = new CarArrayList<>();
         for (int i = 0; i < 100; i++) {
             carList.add(new Car("Brand" + i, i));
         }
