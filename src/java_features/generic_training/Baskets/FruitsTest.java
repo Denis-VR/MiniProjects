@@ -1,6 +1,5 @@
-package java_features.generic_training.Fruits;
+package java_features.generic_training.Baskets;
 
-import java_features.mini_tasks.javaRushTest.task1526.Solution;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -44,7 +43,7 @@ public class FruitsTest {
         Basket<Fruit> basket = new Basket<>();
         basket.add(new Orange());
         basket.add(new Apple());
-        basket.add(new Fruit());
+        basket.add(new Orange());
         assertEquals(3, basket.size());
     }
 
@@ -78,6 +77,25 @@ public class FruitsTest {
 
         apples.transfer(otherFruits);
         assertEquals(20, otherFruits.size());
+
+        Basket<Orange> oranges2 = new Basket<>();
+        for (int i = 0; i < 5; i++) {
+            oranges2.add(new Orange());
+        }
+
+        oranges2.transfer(oranges);
+        assertEquals(5, oranges.size());
+    }
+
+    @Test
+    public void staticTransferTest() {
+        Basket.transfer(apples, fruits);
+        assertEquals(20, fruits.size());
+
+        Basket<Orange> oranges2 = new Basket<>();
+        Basket.transfer(oranges, oranges2);
+        assertEquals(0, oranges.size());
+        assertEquals(10, oranges2.size());
     }
 
 }

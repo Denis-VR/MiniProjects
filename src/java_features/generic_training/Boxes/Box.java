@@ -1,4 +1,4 @@
-package java_features.generic_training;
+package java_features.generic_training.Boxes;
 
 public class Box<T> {
     private T object;

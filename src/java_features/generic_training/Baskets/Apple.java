@@ -1,4 +1,4 @@
-package java_features.generic_training.Fruits;
+package java_features.generic_training.Baskets;
 
 public class Apple extends Fruit{
 

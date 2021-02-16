@@ -1,4 +1,4 @@
-package java_features.generic_training;
+package java_features.generic_training.Boxes;
 
 import java.io.Serializable;
 import java.util.List;
