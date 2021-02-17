@@ -1,4 +1,4 @@
-package java_features.streams_training;
+package java_features.concurrency_training.some_tasks_1;
 
 public class Client {
     private Message message;

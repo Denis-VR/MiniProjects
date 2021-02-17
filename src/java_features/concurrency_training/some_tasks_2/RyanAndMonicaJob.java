@@ -1,4 +1,4 @@
-package java_features.threads_training;
+package java_features.concurrency_training.some_tasks_2;
 
 public class RyanAndMonicaJob implements Runnable {
     private BankAccount account = new BankAccount();

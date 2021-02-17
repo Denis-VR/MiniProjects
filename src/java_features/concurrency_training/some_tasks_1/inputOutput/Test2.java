@@ -1,4 +1,4 @@
-package java_features.streams_training.inputOutput;
+package java_features.concurrency_training.some_tasks_1.inputOutput;
 
 public class Test2 {
     public static void main(String[] args) {

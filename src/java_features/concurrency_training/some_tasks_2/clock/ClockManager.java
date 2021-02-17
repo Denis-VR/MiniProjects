@@ -1,4 +1,4 @@
-package java_features.threads_training.clock;
+package java_features.concurrency_training.some_tasks_2.clock;
 
 public class ClockManager {
     public static boolean isClockRun = true;
