@@ -1,6 +1,6 @@
-package java_features.concurrency_training.task_4_Compare_Threads;
+package java_features.concurrency_training.task_4_compareThreads;
 
-import java_features.concurrency_training.task_3_threads_start.Timer;
+import java_features.concurrency_training.task_3_threadsStart.Timer;
 
 import java.util.Arrays;
 

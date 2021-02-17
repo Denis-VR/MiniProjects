@@ -4,7 +4,7 @@ import org.junit.Before;
 import org.junit.Test;
 import project_8_colletion_framework.Car;
 import project_8_colletion_framework.Interfaces.Queue;
-import project_8_colletion_framework.realization.LinkedList;
+import project_8_colletion_framework.realizations.LinkedList;
 
 import static org.junit.Assert.*;
 

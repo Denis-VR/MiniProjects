@@ -4,7 +4,7 @@ import org.junit.Before;
 import org.junit.Test;
 import project_8_colletion_framework.Car;
 import project_8_colletion_framework.Interfaces.Set;
-import project_8_colletion_framework.realization.HashSet;
+import project_8_colletion_framework.realizations.HashSet;
 
 import static org.junit.Assert.*;
 

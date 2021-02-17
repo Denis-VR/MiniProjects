@@ -5,10 +5,8 @@ import org.junit.Test;
 import project_8_colletion_framework.Car;
 import project_8_colletion_framework.CarOwner;
 import project_8_colletion_framework.Interfaces.Map;
-import project_8_colletion_framework.realization.HashMap;
+import project_8_colletion_framework.realizations.HashMap;
 
-import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 

@@ -1,4 +1,4 @@
-package project_8_colletion_framework.realization;
+package project_8_colletion_framework.realizations;
 
 import project_8_colletion_framework.Interfaces.Set;
 

@@ -1,4 +1,4 @@
-package java_features.concurrency_training.task_3_threads_start;
+package java_features.concurrency_training.task_3_threadsStart;
 
 public class MainThread {
     public static void main(String[] args) throws InterruptedException {
