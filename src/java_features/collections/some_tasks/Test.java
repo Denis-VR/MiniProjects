@@ -3,7 +3,6 @@ package java_features.collections.some_tasks;
 import java_features.collections.some_tasks.help_classes.Animal;
 import java_features.collections.some_tasks.help_classes.Cat;
 import java_features.collections.some_tasks.help_classes.Dog;
-import java_features.collections_training.some_tasks.help_classes.*;
 
 import java.util.ArrayList;
 
