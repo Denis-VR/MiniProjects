@@ -1,11 +1,11 @@
 package project_8_colletionFramework.realizations;
 
-import project_8_colletionFramework.Interfaces.List;
-import project_8_colletionFramework.Interfaces.Queue;
+import project_8_colletionFramework.Interfaces.CarList;
+import project_8_colletionFramework.Interfaces.CarQueue;
 
 import java.util.Iterator;
 
-public class LinkedList<T> implements List<T>, Queue<T> {
+public class CarLinkedList<T> implements CarList<T>, CarQueue<T> {
 
     private Node first;
     private Node last;

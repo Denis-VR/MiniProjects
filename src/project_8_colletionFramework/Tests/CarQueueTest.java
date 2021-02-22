@@ -3,18 +3,18 @@ package project_8_colletionFramework.Tests;
 import org.junit.Before;
 import org.junit.Test;
 import project_8_colletionFramework.Car;
-import project_8_colletionFramework.Interfaces.Queue;
-import project_8_colletionFramework.realizations.LinkedList;
+import project_8_colletionFramework.Interfaces.CarQueue;
+import project_8_colletionFramework.realizations.CarLinkedList;
 
 import static org.junit.Assert.*;
 
 public class CarQueueTest {
 
-    private Queue<Car> queue;
+    private CarQueue<Car> queue;
 
     @Before
     public void setUp() throws Exception {
-        queue = new LinkedList<>();
+        queue = new CarLinkedList<>();
         for (int i = 0; i < 10; i++) {
             queue.add(new Car("Brand" + i, i));
         }

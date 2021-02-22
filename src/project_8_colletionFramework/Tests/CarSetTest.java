@@ -3,17 +3,17 @@ package project_8_colletionFramework.Tests;
 import org.junit.Before;
 import org.junit.Test;
 import project_8_colletionFramework.Car;
-import project_8_colletionFramework.Interfaces.Set;
-import project_8_colletionFramework.realizations.HashSet;
+import project_8_colletionFramework.Interfaces.CarSet;
+import project_8_colletionFramework.realizations.CarHashSet;
 
 import static org.junit.Assert.*;
 
 public class CarSetTest {
-    private Set<Car> carSet;
+    private CarSet<Car> carSet;
 
     @Before
     public void setUp() {
-        carSet = new HashSet<>();
+        carSet = new CarHashSet<>();
     }
 
     @Test

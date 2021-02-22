@@ -1,13 +1,13 @@
 package project_8_colletionFramework.realizations;
 
-import project_8_colletionFramework.Interfaces.Map;
+import project_8_colletionFramework.Interfaces.CarMap;
 
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class HashMap<K, V> implements Map<K, V> {
+public class CarHashMap<K, V> implements CarMap<K, V> {
     private Object[] array = new Object[INITIAL_CAPACITY];
     private static final int INITIAL_CAPACITY = 16;
     private static final double LOAD_FACTOR = 0.75;

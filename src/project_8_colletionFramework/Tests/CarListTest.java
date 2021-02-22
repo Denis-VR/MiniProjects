@@ -3,17 +3,17 @@ package project_8_colletionFramework.Tests;
 import org.junit.Before;
 import org.junit.Test;
 import project_8_colletionFramework.Car;
-import project_8_colletionFramework.Interfaces.List;
-import project_8_colletionFramework.realizations.LinkedList;
+import project_8_colletionFramework.Interfaces.CarList;
+import project_8_colletionFramework.realizations.CarLinkedList;
 
 import static org.junit.Assert.*;
 
 public class CarListTest {
-    private List<Car> carList;
+    private CarList<Car> carList;
 
     @Before
     public void setUp() {
-        carList = new LinkedList<>();
+        carList = new CarLinkedList<>();
         // carList = new CarArrayList<>();
         for (int i = 0; i < 100; i++) {
             carList.add(new Car("Brand" + i, i));

@@ -3,17 +3,17 @@ package project_8_colletionFramework.Tests;
 import org.junit.Before;
 import org.junit.Test;
 import project_8_colletionFramework.Car;
-import project_8_colletionFramework.Interfaces.Collection;
-import project_8_colletionFramework.realizations.HashSet;
+import project_8_colletionFramework.Interfaces.CarCollection;
+import project_8_colletionFramework.realizations.CarHashSet;
 
 import static org.junit.Assert.*;
 
 public class CarCollectionTest {
-    private Collection<Car> carCollection;
+    private CarCollection<Car> carCollection;
 
     @Before
     public void setUp() {
-        carCollection = new HashSet<>();
+        carCollection = new CarHashSet<>();
         for (int i = 0; i < 100; i++) {
             carCollection.add(new Car("Brand" + i, i));
         }

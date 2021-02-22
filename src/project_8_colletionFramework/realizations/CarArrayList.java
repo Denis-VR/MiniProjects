@@ -1,11 +1,11 @@
 package project_8_colletionFramework.realizations;
 
-import project_8_colletionFramework.Interfaces.List;
+import project_8_colletionFramework.Interfaces.CarList;
 
 import java.util.Arrays;
 import java.util.Iterator;
 
-public class ArrayList<T> implements List<T> {
+public class CarArrayList<T> implements CarList<T> {
     private Object[] array = new Object[10];
     private int size = 0;
 
