@@ -8,4 +8,6 @@ public class OwnIndexOutOfBoundsException extends Exception {
 	public String getMessage() {
 		return "Обращение к несуществующему элементу.";
 	}
+
+
 }
