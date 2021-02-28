@@ -1,7 +1,7 @@
 package java_features.lambda.task_1_lambdaStart;
 
 public class LambdaThread {
-    public static void main(String[] args) {
+	public static void main(String[] args) {
 
 //        Worker worker = new Worker() {
 //            @Override
@@ -16,12 +16,12 @@ public class LambdaThread {
 //        String result = director.jobStart(worker, 5);
 //        System.out.println(result);
 
-        System.out.println(new Director().jobStart((n) -> {
-            for (int i = 0; i < n; i++) {
-                System.out.println("I'm working");
-            }
-            return "Success";
-        }, 5));
+		System.out.println(new Director().jobStart((n) -> {
+			for (int i = 0; i < n; i++) {
+				System.out.println("I'm working");
+			}
+			return "Success";
+		}, 5));
 
-    }
+	}
 }

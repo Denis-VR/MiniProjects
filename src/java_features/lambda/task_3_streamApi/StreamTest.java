@@ -9,14 +9,14 @@ import java.util.stream.Collectors;
 public class StreamTest {
 
 	public static void main(String[] args) {
-		 List<Integer> list = new ArrayList<>();
+		List<Integer> list = new ArrayList<>();
 		for (int i = 0; i < 100; i++) {
-			list.add( (int) (Math.random()*100 + 100));
+			list.add((int) (Math.random() * 100 + 100));
 		}
 
 		List<String> result = list.stream()
 				.filter(n -> n % 5 == 0 && n % 2 == 0)
-				.map(Math::sqrt )
+				.map(Math::sqrt)
 				.map(StreamTest::mapToString)
 				.collect(Collectors.toList());
 		for (String s : result) {

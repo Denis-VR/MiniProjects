@@ -135,6 +135,7 @@ public class ListString {
 	public String toString() {
 		String text = "";
 		StringItem current = head;
+
 		while (true) {
 			for (int i = 0; i < current.count; i++) {
 				text += current.symbols[i];

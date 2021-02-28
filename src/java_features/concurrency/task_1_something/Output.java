@@ -1,7 +1,7 @@
 package java_features.concurrency.task_1_something;
 
 public class Output {
-    public static void main(String[] args) {
+	public static void main(String[] args) {
 //        try {
 //            FileWriter writer = new FileWriter(new File("File.txt"));
 //            writer.write("Hello, world!");
@@ -18,5 +18,5 @@ public class Output {
 //        } catch (IOException e) {
 //            e.printStackTrace();
 //        }
-    }
+	}
 }

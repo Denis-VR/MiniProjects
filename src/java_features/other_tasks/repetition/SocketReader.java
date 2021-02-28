@@ -10,41 +10,41 @@ import java.io.PrintWriter;
 import java.net.Socket;
 
 public class SocketReader {
-    Socket chatSocket;
-    JFrame frame;
-    BufferedReader reader;
+	Socket chatSocket;
+	JFrame frame;
+	BufferedReader reader;
 
-    public static void main(String[] args) throws IOException {
-        SocketReader reader = new SocketReader();
-        reader.go();
-    }
+	public static void main(String[] args) throws IOException {
+		SocketReader reader = new SocketReader();
+		reader.go();
+	}
 
-    public void go() throws IOException {
-        JPanel panel = new JPanel();
-        chatSocket = new Socket("127.0.0.2", 5000);
-        reader = new BufferedReader(new InputStreamReader(chatSocket.getInputStream()));
-        String message = reader.readLine();
+	public void go() throws IOException {
+		JPanel panel = new JPanel();
+		chatSocket = new Socket("127.0.0.2", 5000);
+		reader = new BufferedReader(new InputStreamReader(chatSocket.getInputStream()));
+		String message = reader.readLine();
 
-        PrintWriter writer = new PrintWriter(chatSocket.getOutputStream());
+		PrintWriter writer = new PrintWriter(chatSocket.getOutputStream());
 
-        frame = new JFrame("Chat");
-        JTextArea inputText = new JTextArea(50, 200);
-        JTextArea outputText = new JTextArea(20, 200);
+		frame = new JFrame("Chat");
+		JTextArea inputText = new JTextArea(50, 200);
+		JTextArea outputText = new JTextArea(20, 200);
 
-        JButton send = new JButton("Send");
-        send.addActionListener(new SendListener());
+		JButton send = new JButton("Send");
+		send.addActionListener(new SendListener());
 
-        frame.add(panel);
-        frame.setVisible(true);
+		frame.add(panel);
+		frame.setVisible(true);
 
-    }
+	}
 
-    class SendListener implements ActionListener {
+	class SendListener implements ActionListener {
 
-        @Override
-        public void actionPerformed(ActionEvent e) {
+		@Override
+		public void actionPerformed(ActionEvent e) {
 
-        }
-    }
+		}
+	}
 
 }

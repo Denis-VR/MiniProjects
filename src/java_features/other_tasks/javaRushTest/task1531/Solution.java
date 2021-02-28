@@ -10,27 +10,27 @@ import java.math.BigInteger;
 */
 
 public class Solution {
-    public static void main(String[] args) throws IOException {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+	public static void main(String[] args) throws IOException {
+		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
-        int input = Integer.parseInt(reader.readLine());
-        reader.close();
+		int input = Integer.parseInt(reader.readLine());
+		reader.close();
 
-        System.out.println(factorial(input));
-    }
+		System.out.println(factorial(input));
+	}
 
-    public static String factorial(int n) {
-        //add your code here
-        String value = null;
-        BigInteger bInt = BigInteger.valueOf(1);
-        if (n < 0) value = "0";
-        else {
-            for (int i = 1; i <= n; i++) {
-                BigInteger b = BigInteger.valueOf(i);
-                bInt = bInt.multiply(b);
-            }
-            value = bInt.toString();
-        }
-        return value;
-    }
+	public static String factorial(int n) {
+		//add your code here
+		String value = null;
+		BigInteger bInt = BigInteger.valueOf(1);
+		if (n < 0) value = "0";
+		else {
+			for (int i = 1; i <= n; i++) {
+				BigInteger b = BigInteger.valueOf(i);
+				bInt = bInt.multiply(b);
+			}
+			value = bInt.toString();
+		}
+		return value;
+	}
 }

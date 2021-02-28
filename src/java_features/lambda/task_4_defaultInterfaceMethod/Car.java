@@ -8,7 +8,7 @@ public interface Car extends Serializable {
 
 	void go();
 
-	default void stop(){
+	default void stop() {
 		System.out.println("Car stopped");
 	}
 

@@ -1,7 +1,7 @@
 package java_features.inheritance.task_1_zoo;
 
 public interface Pet {
-    void beFriendly();
+	void beFriendly();
 
-    void play(Animal animal);
+	void play(Animal animal);
 }
