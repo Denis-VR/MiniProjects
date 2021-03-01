@@ -3,8 +3,8 @@ package project_9_StringList;
 public class ListString {
 	private StringItem head = new StringItem();
 
-	private class StringItem {
-		private char[] symbols = new char[16];
+	private static class StringItem {
+		private final char[] symbols = new char[16];
 		private StringItem next;
 		private byte count;
 
@@ -25,7 +25,6 @@ public class ListString {
 
 	//Нахождение нужного StringItem-а. При необходимости (когда index кратен 16)
 	// создается новый StringItem.
-	//Алгоритмическая сложность - O(1)
 	private StringItem getItem(int index) {
 		StringItem currentItem = head;
 		int numberStringItem = index / 16;
@@ -38,34 +37,26 @@ public class ListString {
 		return currentItem;
 	}
 
-	//Получаем индекс в последнем StringItem.
-	//Алгоритмическая сложность - O(1)
-	private int getPosition(int index) {
-		return index % 16;
-	}
-
 	//метод проверяет, есть ли в нашем ListString элемент с указанным индексом.
 	public void checkIndex(int index) throws OwnIndexOutOfBoundsException {
 		if (index > this.length()) throw new OwnIndexOutOfBoundsException();
 	}
 
 	//находим символ в строке в позиции index
-	//Алгоритмическая сложность - O(1)
 	public char charAt(int index) throws OwnIndexOutOfBoundsException {
 		checkIndex(index);
 
 		StringItem lastItem = getItem(index);
-		int lastPosition = getPosition(index);
+		int lastPosition = index % 16;
 		return lastItem.symbols[lastPosition];
 	}
 
 	//замена символа в позиции index на символ ch
-	//Алгоритмическая сложность - O(1)
 	public void setCharAt(int index, char ch) throws OwnIndexOutOfBoundsException {
 		checkIndex(index);
 
 		StringItem lastItem = getItem(index);
-		int lastPosition = getPosition(index);
+		int lastPosition = index % 16;
 		lastItem.symbols[lastPosition] = ch;
 	}
 
@@ -81,7 +72,6 @@ public class ListString {
 	}
 
 	//добавить в конец символ
-	//Алгоритмическая сложность - O(1)
 	public void append(char ch) {
 		StringItem lastItem = getItem(length());
 		int lastChar = lastItem.count;
@@ -97,7 +87,7 @@ public class ListString {
 		}
 	}
 
-	//изящно добавить в конец строку ListString
+	//добавить в конец строку ListString
 	public void append(ListString listString) {
 		String string = listString.toString();
 		this.append(string);
@@ -108,7 +98,7 @@ public class ListString {
 		checkIndex(index);
 
 		ListString startListString;
-		if (index==0) { //если вставляем в начало
+		if (index == 0) { //если вставляем в начало
 			startListString = new ListString();
 			startListString.append(string);
 			startListString.append(this); //добавляем наш прошлый ListString в конец
@@ -130,20 +120,20 @@ public class ListString {
 	}
 
 	//переопределяем метод toString, чтобы при выводе объектов ListString
-	// выводилась строка, которая в нем содержиться.
+	// выводилась строка, которая в нем содержится.
 	@Override
 	public String toString() {
-		String text = "";
+		StringBuilder text = new StringBuilder();
 		StringItem current = head;
 
 		while (true) {
 			for (int i = 0; i < current.count; i++) {
-				text += current.symbols[i];
+				text.append(current.symbols[i]);
 			}
 			if (current.next != null) current = current.next;
 			else break;
 		}
-
-		return text;
+		
+		return text.toString();
 	}
 }

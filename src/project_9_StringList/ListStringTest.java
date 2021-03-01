@@ -9,7 +9,7 @@ public class ListStringTest {
 	public ListString listString;
 
 	@Before
-	public void setUp() throws Exception {
+	public void setUp() {
 		listString = new ListString();
 	}
 
@@ -33,11 +33,9 @@ public class ListStringTest {
 	public void testCharAt() throws OwnIndexOutOfBoundsException {
 		for (int i = 0; i < 36; i++) {
 			listString.append((char) (i + 57));
-//			char ch = listString.charAt(i);
-//			System.out.println("#" + i + " - " + ch);
 		}
-		assertTrue((char) (57 + 3) == listString.charAt(3));
-		assertTrue((char) (57 + 27) == listString.charAt(27));
+		assertEquals((char) (57 + 3), listString.charAt(3));
+		assertEquals((char) (57 + 27), listString.charAt(27));
 	}
 
 	@Test
@@ -67,19 +65,31 @@ public class ListStringTest {
 	}
 
 	@Test
-	public void insetrTest() throws OwnIndexOutOfBoundsException {
+	public void insertTest() throws OwnIndexOutOfBoundsException {
 		for (int i = 0; i < 14; i++) {
 			listString.append(String.valueOf(i%10));
 		}
-		assertTrue(listString.toString().equals("01234567890123"));
+		assertEquals("01234567890123", listString.toString());
 
 		listString.insert(5, "HELLO");
-		assertTrue(listString.toString().equals("01234HELLO567890123"));
+		assertEquals("01234HELLO567890123", listString.toString());
 
 		ListString end = new ListString();
 		end.append("FFF");
 		listString.insert(15, end);
-		assertTrue(listString.toString().equals("01234HELLO56789FFF0123"));
+		assertEquals("01234HELLO56789FFF0123", listString.toString());
+	}
 
+	@Test
+	public void newAppend() {
+		ListString newListString = new ListString();
+		for (int i = 0; i < 18; i++) {
+			newListString.append(String.valueOf(i%10));
+		}
+
+		String text = "H";
+		listString.append(text);
+		listString.append(newListString);
+		assertEquals((text + newListString.toString()), listString.toString());
 	}
 }

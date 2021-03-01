@@ -1,17 +1,23 @@
 package java_features.inputOutput;
 
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 
 public class InputOutputFile {
-	public static void main(String[] args) throws IOException {
-		File file = new File("resources/task_1_trainingIO/file1.txt");
+	public static void main(String[] args) {
+		File file = new File("resources/task_1_trainingIO/test.txt");
+		try(FileOutputStream outputStream = new FileOutputStream(file)) {
+		String mails = "Hello, world!"
+				+ "\nHow are you?";
+		outputStream.write(mails.getBytes());
 
-		InputStream inputStream = new FileInputStream(file);
-		int i = inputStream.read();
-		while (i != -1) {
-			System.out.print((char) i);
-			i = inputStream.read();
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
-
+		try {
+			Reader reader = new InputStreamReader(new FileInputStream(file));
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
 	}
 }

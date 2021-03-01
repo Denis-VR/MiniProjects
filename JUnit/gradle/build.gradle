@@ -15,6 +15,10 @@ dependencies {
 
 }
 
+task wrapper(type: Wrapper) {
+    gradleVersion = '6.7.1'
+}
+
 test {
     useJUnitPlatform()
 }

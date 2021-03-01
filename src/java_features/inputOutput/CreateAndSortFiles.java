@@ -12,7 +12,7 @@ public class CreateAndSortFiles {
 		if(directory.mkdirs()) System.out.println("Создана директория: " +
 				directory.getName());
 		ArrayList<File> filesList = new ArrayList<>();
-		filesList.add(new File(directory + "/file1.txt"));
+		filesList.add(new File(directory + "/bigFile.txt"));
 		filesList.add(new File(directory + "/file2.md"));
 		filesList.add(new File(directory + "/file3.jpg"));
 
@@ -27,15 +27,6 @@ public class CreateAndSortFiles {
 			System.out.println(file.getAbsolutePath());
 		}
 
-	}
-
-	public static void checkFile(File file) {
-		System.out.println("-------Проверка-файла-------");
-		System.out.println("Имя файла: " + file.getName());
-		System.out.println("Файл существует: " + file.exists());
-		System.out.println("Это директрия: " + file.isDirectory());
-		System.out.println("Это file: " + file.isFile());
-		System.out.println("----------------------------");
 	}
 
 }

@@ -8,6 +8,9 @@
       <module name="gradle" target="14" />
       <module name="gradle_main" target="14" />
       <module name="gradle_test" target="14" />
+      <module name="JUnit.gradle" target="14" />
+      <module name="JUnit.gradle.main" target="14" />
+      <module name="JUnit.gradle.test" target="14" />
     </bytecodeTargetLevel>
   </component>
 </project>
