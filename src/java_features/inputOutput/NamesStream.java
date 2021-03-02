@@ -2,13 +2,12 @@ package java_features.inputOutput;
 
 import java.io.*;
 import java.util.Arrays;
-import java.util.function.Predicate;
 
 public class NamesStream {
 	public static void main(String[] args) {
 		File file = new File("resources/task_2_namesList/names.txt");
 
-		String string = MyIO.ReadTextFIle(file);
+		String string = MyIO.readTextFile(file);
 		String[] names = string.split("\n");
 
 		Arrays.stream(names)

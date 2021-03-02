@@ -14,6 +14,31 @@ public class ListStringTest {
 	}
 
 	@Test
+	public void listString() {
+		listString = new ListString("Hello, it's do amazing!");
+		System.out.println(listString);
+	}
+
+	@Test
+	public void lengthTest() {
+		StringBuilder text = new StringBuilder();
+		int expect = 7;
+		for (int i = 0; i < expect; i++) {
+			text.append("k");
+		}
+		listString = new ListString(text.toString());
+		assertEquals(expect, listString.length());
+
+		StringBuilder text2 = new StringBuilder();
+		int expect2 = 46;
+		for (int i = 0; i < expect2; i++) {
+			text2.append("k");
+		}
+		listString = new ListString(text2.toString());
+		assertEquals(expect2, listString.length());
+	}
+
+	@Test
 	public void whenAppendWithCh() {
 		for (int i = 0; i < 7; i++) {
 			listString.append('e');
@@ -34,7 +59,8 @@ public class ListStringTest {
 		for (int i = 0; i < 36; i++) {
 			listString.append((char) (i + 57));
 		}
-		assertEquals((char) (57 + 3), listString.charAt(3));
+		char in = (char) (57 + 3);
+		assertEquals(in, listString.charAt(3));
 		assertEquals((char) (57 + 27), listString.charAt(27));
 	}
 
@@ -87,7 +113,7 @@ public class ListStringTest {
 			newListString.append(String.valueOf(i%10));
 		}
 
-		String text = "H";
+		String text = "Hello, hello, hello";
 		listString.append(text);
 		listString.append(newListString);
 		assertEquals((text + newListString.toString()), listString.toString());

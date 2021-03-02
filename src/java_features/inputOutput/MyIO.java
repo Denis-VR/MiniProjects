@@ -4,7 +4,7 @@ import java.io.*;
 
 public class MyIO {
 
-	public static String ReadTextFIle(File file) {
+	public static String readTextFile(File file) {
 		StringBuilder result = null;
 		try (Reader reader = new InputStreamReader(new FileInputStream(file))) {
 			result = new StringBuilder();

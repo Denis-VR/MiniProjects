@@ -4,7 +4,7 @@ public class ListString {
 	private StringItem head = new StringItem();
 
 	private static class StringItem {
-		private final char[] symbols = new char[16];
+		private char[] symbols = new char[16];
 		private StringItem next;
 		private byte count;
 
@@ -14,24 +14,57 @@ public class ListString {
 	public int length() {
 		int len = 0;
 		StringItem currentItem = head;
-		while (currentItem.count != 0) {
-			len += currentItem.count;
-			if (currentItem.next != null)
-				currentItem = currentItem.next;
-			else break;
+		ListString newListString = new ListString();
+		while (currentItem != null) {
+			for (int i = 0; i < 16; i++) {
+				if (currentItem.symbols[i] != 0) {
+					newListString.append(currentItem.symbols[i]);
+					len++;
+				}
+				else break;
+			}
+			currentItem = currentItem.next;
 		}
+		head = newListString.head;
 		return len;
 	}
 
-	//Нахождение нужного StringItem-а. При необходимости (когда index кратен 16)
-	// создается новый StringItem.
-	private StringItem getItem(int index) {
+	public ListString(String string) {
 		StringItem currentItem = head;
-		int numberStringItem = index / 16;
-		for (int i = 0; i < numberStringItem; i++) {
-			if (currentItem.next == null) {
-				currentItem.next = new StringItem();
+		char[] ourString = string.toCharArray();
+		int numberItem = ourString.length / 16 + 1;
+		for (int item = 0; item < numberItem; item++) {
+			for (int countSymbol = 0; countSymbol < 16; countSymbol++) {
+				int num = countSymbol + (item * 16);
+				if (ourString.length - num != 0) {
+					currentItem.symbols[countSymbol] = ourString[num];
+					currentItem.count++;
+				} else break;
 			}
+			currentItem.next = new StringItem();
+			currentItem = currentItem.next;
+		}
+	}
+
+	//Конструктор без аргументов
+	public ListString() {
+	}
+
+	//Находим StringItem по индексу
+	public StringItem getItem(int index) {
+		this.length(); //метод объединяет строки.
+		int numberItem = index / 16 + 1;
+		StringItem currentItem = head;
+		for (int i = 1; i < numberItem; i++) {
+			currentItem = currentItem.next;
+		}
+		return currentItem;
+	}
+
+	//Нахождение нужного StringItem-а.
+	private StringItem getLastItem() {
+		StringItem currentItem = head;
+		while (currentItem.next != null) {
 			currentItem = currentItem.next;
 		}
 		return currentItem;
@@ -46,86 +79,88 @@ public class ListString {
 	public char charAt(int index) throws OwnIndexOutOfBoundsException {
 		checkIndex(index);
 
-		StringItem lastItem = getItem(index);
-		int lastPosition = index % 16;
-		return lastItem.symbols[lastPosition];
+		StringItem currentItem = getItem(index);
+		return currentItem.symbols[index % 16];
 	}
 
 	//замена символа в позиции index на символ ch
 	public void setCharAt(int index, char ch) throws OwnIndexOutOfBoundsException {
 		checkIndex(index);
 
-		StringItem lastItem = getItem(index);
-		int lastPosition = index % 16;
-		lastItem.symbols[lastPosition] = ch;
+		StringItem currentItem = getItem(index);
+		currentItem.symbols[index % 16] = ch;
 	}
 
+	//TODO: test it
 	//взятие подстроки, от start до end, не включая end
 	public ListString substring(int start, int end) throws OwnIndexOutOfBoundsException {
 		checkIndex(end);
 
-		ListString result = new ListString();
-		String ourListString = this.toString();
-		result.append(ourListString.substring(start, end));
+		ListString substring = new ListString();
+		StringItem currentItem = getItem(start);
+		int count = 0;
 
-		return result;
+		for (int i = currentItem.count - 1; i < 16; i++) {
+			substring.append(currentItem.symbols[i]);
+			count++;
+			if (count == end - start) return substring;
+		}
+
+		while (count < end - start) {
+			currentItem = currentItem.next;
+			for (int i = 0; i < 16; i++) {
+				substring.append(currentItem.symbols[i]);
+				count++;
+				if (count == end - start) return substring;
+			}
+		}
+
+		return substring;
 	}
 
 	//добавить в конец символ
 	public void append(char ch) {
-		StringItem lastItem = getItem(length());
-		int lastChar = lastItem.count;
-		lastItem.symbols[lastChar] = ch;
-		lastItem.count++;
-	}
-
-	//добавить в конец строку String
-	public void append(String string) {
-		char[] ourString = string.toCharArray();
-		for (int i = 0; i < string.length(); i++) {
-			this.append(ourString[i]);
+		StringItem lastItem = getLastItem();
+		if(lastItem.count==16) {
+			lastItem.next = new StringItem();
+			lastItem = lastItem.next;
 		}
+		lastItem.symbols[lastItem.count] = ch;
+		lastItem.count++;
 	}
 
 	//добавить в конец строку ListString
 	public void append(ListString listString) {
-		String string = listString.toString();
-		this.append(string);
+		StringItem lastItem = getLastItem();
+		lastItem.next = listString.head;
+	}
+
+	//добавить в конец строку
+	public void append(String string) {
+		ListString listString = new ListString(string);
+		this.append(listString);
 	}
 
 	//вставить в строку в позицию index строку
 	public void insert(int index, String string) throws OwnIndexOutOfBoundsException {
 		checkIndex(index);
 
-		ListString startListString;
-		if (index == 0) { //если вставляем в начало
-			startListString = new ListString();
-			startListString.append(string);
-			startListString.append(this); //добавляем наш прошлый ListString в конец
-		} else {
-			startListString = this.substring(0, index);
-			startListString.append(string);
-			startListString.append(this.substring(index, this.length()));
-		}
-
-		head = startListString.head; //меняем голову
+		ListString listString = new ListString(string);
+		listString.insert(index, string);
 	}
 
+	//TODO
 	//вставить в позицию index строку ListString
 	public void insert(int index, ListString string) throws OwnIndexOutOfBoundsException {
 		checkIndex(index);
 
-		String listStringButString = string.toString();
-		this.insert(index, listStringButString);
+
 	}
 
-	//переопределяем метод toString, чтобы при выводе объектов ListString
-	// выводилась строка, которая в нем содержится.
 	@Override
 	public String toString() {
 		StringBuilder text = new StringBuilder();
 		StringItem current = head;
-
 		while (true) {
 			for (int i = 0; i < current.count; i++) {
 				text.append(current.symbols[i]);
@@ -133,7 +168,6 @@ public class ListString {
 			if (current.next != null) current = current.next;
 			else break;
 		}
-		
 		return text.toString();
 	}
 }
