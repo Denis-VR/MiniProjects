@@ -1,5 +1,3 @@
-import java_features.inputOutput.MyIO;
-
 import java.io.*;
 
 public class Main {

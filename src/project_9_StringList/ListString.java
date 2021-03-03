@@ -150,7 +150,7 @@ public class ListString {
 	}
 
 	//TODO
-	//вставить в позицию index строку ListString
+	//вставить в позицию index ListString
 	public void insert(int index, ListString string) throws OwnIndexOutOfBoundsException {
 		checkIndex(index);
 

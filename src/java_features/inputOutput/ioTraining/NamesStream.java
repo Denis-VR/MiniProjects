@@ -1,4 +1,4 @@
-package java_features.inputOutput;
+package java_features.inputOutput.ioTraining;
 
 import java.io.*;
 import java.util.Arrays;
